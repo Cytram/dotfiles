@@ -8,10 +8,12 @@ brew install htop
 brew install nload
 brew install helm
 brew install go
+brew install node
 brew install hashicorp/tap/terraform-ls
 brew install watch
 brew install tree
 brew install kustomize
+brew install python3
 
 # Fish
 brew install fish
@@ -22,7 +24,7 @@ grep -E "(fish)" /etc/shells || echo "/usr/local/bin/fish" | sudo tee -a /etc/sh
 cp config/fish/config.fish ~/.config/fish/
 
 # Functions
-cp config/fish/functions/ ~/.config/fish/functions/
+cp -r config/fish/functions/ ~/.config/fish/functions/
 
 # Install oh-my-fish
 curl -L https://github.com/oh-my-fish/oh-my-fish/raw/master/bin/install | fish
@@ -41,12 +43,6 @@ cd $baseDir
 
 
 ### Neovim
-# Install
-#cd /tmp
-#curl -LO https://github.com/neovim/neovim/releases/download/nightly/nvim-macos.tar.gz
-#tar xzf nvim-macos.tar.gz
-#cp nvim-osx64/bin/nvim /usr/local/bin/
-#cd $baseDir
 brew install neovim
 
 # Config
