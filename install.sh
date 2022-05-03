@@ -7,6 +7,7 @@ brew install fzf
 brew install htop
 brew install nload
 brew install helm
+brew install croc
 brew install go
 brew install node
 brew install hashicorp/tap/terraform-ls
