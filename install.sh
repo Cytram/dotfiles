@@ -1,9 +1,13 @@
-#!/bin/sh
+#!/bin/zsh
 baseDir=$(pwd)
+
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+eval "$(/opt/homebrew/bin/brew shellenv)"
 
 ## Fancy view for kubectx
 brew install fzf
 
+brew install iterm2
 brew install htop
 brew install nload
 brew install helm
@@ -15,11 +19,14 @@ brew install watch
 brew install tree
 brew install kustomize
 brew install python3
+brew install openfortivpn
+
 
 # Fish
 brew install fish
 echo "Add fish to /etc/shells"
-grep -E "(fish)" /etc/shells || echo "/usr/local/bin/fish" | sudo tee -a /etc/shells
+grep -E "(fish)" /etc/shells || echo "/opt/homebrew/opt/fish/bin/fish" | sudo tee -a /etc/shells
+chsh -s /opt/homebrew/opt/fish/bin/fish
 
 # Fish config
 cp config/fish/config.fish ~/.config/fish/
@@ -51,7 +58,7 @@ cp -r nvim $HOME/.config/
 ln -s ~/.config/nvim/init.vim ~/.vimrc
 
 # Plug manager
-sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.vim}"/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+ curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 # Insatll Plugins
 vim +'PlugInstall --sync' +qa
