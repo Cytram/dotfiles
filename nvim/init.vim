@@ -10,7 +10,6 @@ Plug 'iCyMind/NeoSolarized'
 Plug 'vim-airline/vim-airline'
 Plug 'airblade/vim-gitgutter'
 
-Plug 'ncm2/ncm2'
 Plug 'roxma/nvim-yarp'
 
 Plug 'godlygeek/tabular'
@@ -20,44 +19,12 @@ Plug 'ntpeters/vim-better-whitespace'
 " IMPORTANT: :help Ncm2PopupOpen for more information
 set completeopt=noinsert,menuone,noselect
 
-" NOTE: you need to install completion sources to get completions. Check
-" our wiki page for a list of sources: https://github.com/ncm2/ncm2/wiki
-Plug 'ncm2/ncm2-bufword'
-Plug 'ncm2/ncm2-path'
-
-Plug 'autozimu/LanguageClient-neovim', {
-    \ 'branch': 'next',
-    \ 'do': 'bash install.sh',
-    \ }
-
 " (Optional) Multi-entry selection UI.
 Plug 'junegunn/fzf'
 
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 
 call plug#end()
-
-let g:LanguageClient_autoStart = 1
-
-" Launch gopls when Go files are in use
-let g:LanguageClient_serverCommands = {
-  \ 'dockerfile': ['docker-langserver', '--stdio'],
-  \ 'go': ['gopls'],
-  \ 'python': ['pyls'],
-  \ 'terraform': ['terraform-lsp', 'serve'],
-  \ }
-
-nnoremap <F5> :call LanguageClient_contextMenu()<CR>
-" Or map each action separately
-nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
-nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
-nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
-
-" enable ncm2 for all buffers
-autocmd BufEnter * call ncm2#enable_for_buffer()
-
-" Run gofmt and goimports on save
-autocmd BufWritePre *.go :call LanguageClient#textDocument_formatting_sync()
 
 " Uncomment the following to have Vim jump to the last position when
 " reopening a file

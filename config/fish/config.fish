@@ -7,7 +7,7 @@ set -x SSH_AUTH_SOCK "$HOME/.gnupg/S.gpg-agent.ssh"
 # Set GPG TTY
 set -x GPG_TTY (tty)
 
-nvm install 'lts/*'
+eval "$(/opt/homebrew/bin/brew shellenv)"
 
 set -x EDITOR nvim
 alias v="nvim"
