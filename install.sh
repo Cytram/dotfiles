@@ -15,11 +15,15 @@ brew install watch
 brew install tree
 brew install kustomize
 brew install python3
+brew install openfortivpn
+brew install sops
+brew install age
 
 # Fish
 brew install fish
 echo "Add fish to /etc/shells"
-grep -E "(fish)" /etc/shells || echo "/usr/local/bin/fish" | sudo tee -a /etc/shells
+#grep -E "(fish)" /etc/shells || echo "/usr/local/bin/fish" | sudo tee -a /etc/shells
+chsh -s /usr/local/bin/fish
 
 # Fish config
 cp config/fish/config.fish ~/.config/fish/
@@ -46,7 +50,7 @@ cd $baseDir
 ### Neovim
 brew install neovim
 
-# Config
+ Config
 cp -r nvim $HOME/.config/
 ln -s ~/.config/nvim/init.vim ~/.vimrc
 

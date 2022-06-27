@@ -1,4 +1,11 @@
-set -g fish_user_paths "/usr/local/opt/python@3.8/bin" $fish_user_paths
+set -g fish_user_paths "/usr/local/bin/python3" $fish_user_paths
+
+set -e SSH_AGENT_PID
+set -e SSH_ASKPASS
+set -x SSH_AUTH_SOCK "$HOME/.gnupg/S.gpg-agent.ssh"
+
+# Set GPG TTY
+set -x GPG_TTY (tty)
 
 nvm install 'lts/*'
 
